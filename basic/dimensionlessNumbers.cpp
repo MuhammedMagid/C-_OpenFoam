@@ -12,50 +12,34 @@ using namespace std;
 	double Grashof (double nu , double l, double beta, double deltaT, double g);
 	double Mach (double u, double v);
 	double Schmidt (double rho, double mu, double D);
+	
+	void info(string lineDouble);
+	void header(string lineSingle);
+
 
 	int main()
 	{
 		
-		double rho  , u , l , mu , nu, c_p , k , h , d, h_d, v , D , deltaT;
+		double rho  , u , l , mu , nu, c_p , k , h , d, h_d, v , D , deltaT,beta;
 		double g = 9.81;
 		
 		map<string, string> symbol  = {
 			{"Re","Reynolds number"},{"u", "Velocity"}, {"rho ", "Density"},{"l", "Characteristic length"}, {"mu","Dynamic viscosity"}
 			};
 
-		int dnumber;
+		int numberCode;
 
-		
 		string lineSingle = "------------------------------------------------";
 		string lineDouble = "================================================";
 		
-		cout << lineDouble <<endl;
-		cout<<  "  =========       |"<< "  dimensionlessNumbers.cpp" <<endl ;
-		cout<<  "  \\\\      /       |"<< "  OpenFoam Training"<<endl;
-		cout<<   "   \\\\    /        |" <<  "  Developer: Muhammed Magid" <<endl;
-        cout<<    "    \\\\  /         |"<<endl;
-        cout<<    "     \\\\/          |" <<  " [Basic]"<<endl;
+		info(lineDouble);
+		header(lineSingle) ;
 
-		cout << lineDouble <<endl;
-				
-		//Header
-		cout <<endl<< "Type the code of the dimensioless number to calculate"<<endl;
-		cout<<lineSingle<<endl;
-		cout << "10	Reynolds number	(Re)"<<endl;
-		cout << "20	Prandtl Number	(Pr)" <<endl;
-		cout << "30	Nusselt number	(Nu)" <<endl;
-		cout << "40	Sherwood Number	(Sh)" <<endl;
-		cout << "50	Froude number	(Fr)" <<endl;
-		cout << "60	Grashof Number	(Gr)" <<endl;
-		cout << "70	Mach number	(Ma)" <<endl;
-		cout << "80	Schmidt number	(Sc)" <<endl;
 
-		cout << lineSingle <<endl;
-		cout << "Code: ";
-		cin >> dnumber;
+		cin >> numberCode;
 		cout << lineSingle <<endl;
 		
-		switch(dnumber) {
+		switch(numberCode) {
 			
 			
 		//Reynolds number 
@@ -95,28 +79,84 @@ using namespace std;
 			break;
 			
 		case 40:
-			cout << "02";
+			// print value
+			cout << lineSingle<<endl;
+			cout <<Sherwood (h_d,l,D)<<endl;
+			cout << lineSingle <<endl;
+			cout << "End of Program"<<endl;			
 			break;
 		
 		case 50:
-			cout << "02";
+			// print value
+			cout << lineSingle<<endl;
+			cout <<Froude(u,l,g)<<endl;
+			cout << lineSingle <<endl;
+			cout << "End of Program"<<endl;	
 			break;
 		case 60:
-			cout << "02";
+			// print value
+			cout << lineSingle<<endl;
+			cout <<Grashof(nu,l,beta,deltaT,g)<<endl;
+			cout << lineSingle <<endl;
+			cout << "End of Program"<<endl;
 			break;
 		
 		case 70:
-			cout << "02";
+			// print value
+			cout << lineSingle<<endl;
+			cout <<Mach(u,v)<<endl;
+			cout << lineSingle <<endl;
+			cout << "End of Program"<<endl;
 			break;
 			
 		case 80:
-			cout << "02";
+			// print value
+			cout << lineSingle<<endl;
+			cout <<Schmidt(rho,mu,D)<<endl;
+			cout << lineSingle <<endl;
+			cout << "End of Program"<<endl;
 			break;
 
 		default:
-			cout << "Enter a valid CODE";
+			cout << numberCode << " :Not a valid CODE" <<endl;
+			cout << lineSingle <<endl;
+			
 		}
+		
+		return 0;
 
+	}
+	
+	
+	
+	
+	
+	void info(string lineDouble){
+		//Info
+		cout << lineDouble <<endl;
+		cout<<  "  =========       |"<< "  dimensionlessNumbers.cpp" <<endl ;
+		cout<<  "  \\\\      /       |"<< "  OpenFoam Training"<<endl;
+		cout<<   "   \\\\    /        |" <<  "  Developer: Muhammed Magid" <<endl;
+        cout<<    "    \\\\  /         |"<<endl;
+        cout<<    "     \\\\/          |" <<  " [Basic]"<<endl;
+		cout << lineDouble <<endl;
+
+	}
+	
+	void header(string lineSingle ){
+		//Header
+		cout <<endl<< "Type the code of the dimensioless number to calculate"<<endl;
+		cout<<lineSingle<<endl;
+		cout << "10	Reynolds number	(Re)"<<endl;
+		cout << "20	Prandtl Number	(Pr)" <<endl;
+		cout << "30	Nusselt number	(Nu)" <<endl;
+		cout << "40	Sherwood Number	(Sh)" <<endl;
+		cout << "50	Froude number	(Fr)" <<endl;
+		cout << "60	Grashof Number	(Gr)" <<endl;
+		cout << "70	Mach number	(Ma)" <<endl;
+		cout << "80	Schmidt number	(Sc)" <<endl;
+		cout << lineSingle <<endl;
+		cout << "Code: ";
 	}
 
 	double Reynolds (double u, double l, double rho, double mu){
@@ -161,17 +201,57 @@ using namespace std;
 		return (h*l)/k;
 	};
 	double Sherwood (double h_d, double l, double D){
+		//calculations
+		cout << "Enter the values in order"<<endl;
+		cout << "h_d = ";
+		cin >>h_d;
+		cout << "l = ";
+		cin >> l;
+		cout << "D = ";
+		cout<< "Sh = "; 
 		return (h_d*l)/D ;
 	};
 	double Froude (double u, double l , double g){
+		//calculations
+		cout << "Enter the values in order"<<endl;
+		cout << "u = ";
+		cin >>u;
+		cout << "l = ";
+		cin >> l;
+		cout<< "Fr = "; 
 		return u/sqrt(g*l) ;
 	};
 	double Grashof (double nu , double l, double beta, double deltaT ,double g){
+				//calculations
+		cout << "Enter the values in order"<<endl;
+		cout << "nu = ";
+		cin >>nu;
+		cout << "l = ";
+		cin >> l;
+		cout << "beta = ";
+		cin>>beta;
+		cout << "deltaT = ";
+		cin>>deltaT;
+		cout<< "Gr = "; 
 		return (pow(l,3)*beta*g*deltaT)/nu;
 	};
 	double Mach (double u, double v){
+		cout << "Enter the values in order"<<endl;
+		cout << "u = ";
+		cin>>u;
+		cout << "v = ";
+		cin>>v;
+		cout<< "Ma = "; 		
 		return u/v;
 	};
 	double Schmidt (double rho, double mu, double D){
+		cout << "Enter the values in order"<<endl;
+		cout << "rho = ";
+		cin>>rho;
+		cout << "mu = ";
+		cin>>mu;
+		cout << "D = ";
+		cin>>D;
+		cout<< "Sc = "; 
 		return mu/(rho*D);
 	};
