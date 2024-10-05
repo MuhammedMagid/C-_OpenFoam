@@ -24,7 +24,10 @@ using namespace std;
 		double g = 9.81;
 		
 		map<string, string> symbol  = {
-			{"Re","Reynolds number"},{"u", "Velocity"}, {"rho ", "Density"},{"l", "Characteristic length"}, {"mu","Dynamic viscosity"}
+			{"Re","Reynolds number"},{"Pr","Prandtl number"}, {"Nu","Nusselt number"}, {"Sh","Sherwood number"},{"Fr","Froude number"},{"Gr","Grashof number"},{"Ma","Mach number"},{"Sc","Schmidt number"},
+			{"u", "Velocity"}, {"rho", "Density"},{"l", "Characteristic length"}, {"mu","Dynamic viscosity"},{"c_p","Specific heat capacity"},{"k","Thermal conductivity"},
+			{"h","Heat transfer coefficient"},{"h_d"," Mass transfer coefficient"},{"D"," Diffusivity"},{"g","Acceleration due to gravity"},
+			{"nu","Kinematic viscosity"},{"beta","Volumetric thermal expansion coefficient"},{"deltaT","Difference between surface temperature and bulk temperature"},{"v"," Velocity of sound in that medium"}
 			};
 
 		int numberCode;
@@ -48,11 +51,12 @@ using namespace std;
 			cout <<"Eqn in LaTex: Re = \\frac{\\rho  u L}{\\mu}" <<endl;
 			cout<< "Where" <<endl;
 			cout<<"Re:	 " <<symbol["Re"] <<endl;
-			cout<<"rho:	 " <<symbol["rho "] <<endl;
+			cout<<"rho:	 " <<symbol["rho"] <<endl;
 			cout<<"u:	 " <<symbol["u"] <<endl;
 			cout<<"L:	 " <<symbol["l"] <<endl;
 			cout<<"mu:	 " <<symbol["mu"] <<endl;
 			cout << lineSingle<<endl;
+			
 			// print Re value
 			cout << Reynolds(u,l,rho,mu) <<endl;
 			cout << lineSingle <<endl;
@@ -61,9 +65,16 @@ using namespace std;
 			
 		//Prandtl number
 		case 20:
+			//details
+			cout <<"Eqn in LaTex: Pr = \\frac{(C_{p}\\mu)}{k}  " <<endl;
+			cout<< "Where" <<endl;
+			cout<<"Pr:	 " <<symbol["Pr"] <<endl;
+			cout<<":c_p	 " <<symbol["c_p"] <<endl;
+			cout<<"mu:	 " <<symbol["mu"] <<endl;
+			cout<<"k:	 " <<symbol["k"] <<endl;
+			cout << lineSingle<<endl;
 
 			// print value
-			cout << lineSingle<<endl;
 			cout<<Prandtl(c_p,mu,k)<<endl;		
 			cout << lineSingle <<endl;
 			cout << "End of Program"<<endl;			
@@ -71,47 +82,97 @@ using namespace std;
 		
 		//Nusselt number
 		case 30:
-			// print value
+					//details
+			cout <<"Eqn in LaTex: Nu= \\frac{(hl)}{k}" <<endl;
+			cout<< "Where" <<endl;
+			cout<<"Nu:	 " <<symbol["Nu"] <<endl;
+			cout<<"h:	 " <<symbol["h"] <<endl;
+			cout<<"l:	 " <<symbol["l"] <<endl;
+			cout<<"k:	 " <<symbol["k"] <<endl;
 			cout << lineSingle<<endl;
+			
+			// print value
 			cout <<Nusselt(h,l,k)<<endl;
 			cout << lineSingle <<endl;
 			cout << "End of Program"<<endl;
 			break;
 			
 		case 40:
-			// print value
+			//details
+			cout <<"Eqn in LaTex: Sh = \\frac{(h_{d} l)}{D}" <<endl;
+			cout<< "Where" <<endl;
+			cout<<"Sh:	 " <<symbol["Sh"] <<endl;
+			cout<<"h_d:	 " <<symbol["h_d"] <<endl;
+			cout<<"l:	 " <<symbol["l"] <<endl;
+			cout<<"D:	 " <<symbol["D"] <<endl;
 			cout << lineSingle<<endl;
+			
+			// print value
 			cout <<Sherwood (h_d,l,D)<<endl;
 			cout << lineSingle <<endl;
 			cout << "End of Program"<<endl;			
 			break;
 		
 		case 50:
-			// print value
+			//details
+			cout <<"Eqn in LaTex: Fr = \\frac{u}{(g l)^{1/2}" <<endl;
+			cout<< "Where" <<endl;
+			cout<<"Fr:	 " <<symbol["Fr"] <<endl;
+			cout<<"u:	 " <<symbol["u"] <<endl;
+			cout<<"l:	 " <<symbol["l"] <<endl;
+			cout<<"g:	 " <<symbol["g"] <<endl;
 			cout << lineSingle<<endl;
+			
+			// print value
 			cout <<Froude(u,l,g)<<endl;
 			cout << lineSingle <<endl;
 			cout << "End of Program"<<endl;	
 			break;
 		case 60:
-			// print value
+			//details
+			cout <<"Eqn in LaTex: Gr = \\frac{(L^3 \\beta g \\Delta T)} {\\nu^{2}" <<endl;
+			cout<< "Where" <<endl;
+			cout<<"Gr:	 " <<symbol["Gr"] <<endl;
+			cout<<"nu:	 " <<symbol["nu"] <<endl;
+			cout<<"l:	 " <<symbol["l"] <<endl;
+			cout<<"beta:	 " <<symbol["beta"] <<endl;
+			cout<<"Delta_T: " <<symbol["deltaT"] <<endl;
+			cout<<"nu:	 " <<symbol["g"] <<endl;
 			cout << lineSingle<<endl;
+			
+			// print value
 			cout <<Grashof(nu,l,beta,deltaT,g)<<endl;
 			cout << lineSingle <<endl;
 			cout << "End of Program"<<endl;
 			break;
 		
 		case 70:
-			// print value
+			//details
+			cout <<"Eqn in LaTex:  Ma = \\frac{u}{v}" <<endl;
+			cout<< "Where" <<endl;
+			cout<<"Ma:	 " <<symbol["Ma"] <<endl;
+			cout<<"u:	 " <<symbol["u"] <<endl;
+			cout<<"v:	 " <<symbol["v"] <<endl;
+
 			cout << lineSingle<<endl;
+			
+			// print value
 			cout <<Mach(u,v)<<endl;
 			cout << lineSingle <<endl;
 			cout << "End of Program"<<endl;
 			break;
 			
 		case 80:
-			// print value
+			//details
+			cout <<"Eqn in LaTex:	Sc= \\frac{\\mu}{\\rho D}" <<endl;
+			cout<< "Where" <<endl;
+			cout<<"Sc:	 " <<symbol["Sc"] <<endl;
+			cout<<"mu:	 " <<symbol["mu"] <<endl;
+			cout<<"rho:	 " <<symbol["rho"] <<endl;
+			cout<<"D:	 " <<symbol["D"] <<endl;
 			cout << lineSingle<<endl;
+			
+			// print value
 			cout <<Schmidt(rho,mu,D)<<endl;
 			cout << lineSingle <<endl;
 			cout << "End of Program"<<endl;
