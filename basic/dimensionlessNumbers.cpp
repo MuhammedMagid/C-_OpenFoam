@@ -12,6 +12,7 @@ using namespace std;
 	double Grashof (double nu , double l, double beta, double deltaT, double g);
 	double Mach (double u, double v);
 	double Schmidt (double rho, double mu, double D);
+	void phyics(int code);
 	
 	void info(string lineDouble);
 	void header(string lineSingle);
@@ -40,6 +41,7 @@ using namespace std;
 
 
 		cin >> numberCode;
+		char calculate;
 		cout << lineSingle <<endl;
 		
 		switch(numberCode) {
@@ -47,7 +49,13 @@ using namespace std;
 			
 		//Reynolds number 
 		case 10:
+		
+		
+			phyics(numberCode);
 			//details
+			cout<<"Do you want to claculate Re? y/n"<<endl;
+			cin>>calculate;
+			if (calculate == 'y'){
 			cout <<"Eqn in LaTex: Re = \\frac{\\rho  u L}{\\mu}" <<endl;
 			cout<< "Where" <<endl;
 			cout<<"Re:	 " <<symbol["Re"] <<endl;
@@ -61,6 +69,9 @@ using namespace std;
 			cout << Reynolds(u,l,rho,mu) <<endl;
 			cout << lineSingle <<endl;
 			cout << "End of Program"<<endl;
+				
+			}
+
 			break;
 			
 		//Prandtl number
@@ -219,7 +230,92 @@ using namespace std;
 		cout << lineSingle <<endl;
 		cout << "Code: ";
 	}
+	
+	void phyics(int code){
+		switch(code) {
+			
+		//Reynolds number 
+		case 10:
+		
+			cout << "========================================================================" << endl;
+			cout << "The Reynolds number (Re) is a dimensionless quantity used in fluid mechanics to" << endl;
+			cout << "predict flow patterns in different fluid flow situations. It is defined as the" << endl;
+			cout << "ratio of inertial forces to viscous forces in a fluid and is essential for" << endl;
+			cout << "determining whether the flow will be laminar or turbulent." << endl;
+			cout << endl;
+			cout << "Physical Significance:" << endl;
+			cout << "The Reynolds number helps predict the flow regime of a fluid:" << endl;
+			cout << endl;
+			cout << ">Laminar Flow (Re<2000): The flow is smooth and orderly, with fluid particles" << endl;
+			cout << "moving in parallel layers. In laminar flow, viscous forces dominate, and the" << endl;
+			cout << "fluid flows in a predictable manner." << endl;
+			cout << ">Transitional Flow (2000<Re<4000): The flow regime is unstable, and the fluid" << endl;
+			cout << "may transition between laminar and turbulent flow. Small disturbances can lead" << endl;
+			cout << "to chaotic flow patterns." << endl;
+			cout << ">Turbulent Flow (Re>4000): The flow becomes chaotic and irregular, characterized" << endl;
+			cout << "by eddies, vortices, and rapid fluctuations in velocity and pressure. In" << endl;
+			cout << "turbulent flow, inertial forces dominate over viscous forces." << endl;
+			cout << endl;
+			cout << "Applications:" << endl;
+			cout << ">Pipe Flow: The Reynolds number is crucial for analyzing flow in pipes, helping" << endl;
+			cout << "to determine whether the flow is laminar or turbulent, which influences pressure" << endl;
+			cout << "drop calculations and flow rates." << endl;
+			cout << ">Aerospace Engineering: In the study of aircraft and spacecraft, the Reynolds" << endl;
+			cout << "number helps predict aerodynamic behavior, influencing lift, drag, and overall" << endl;
+			cout << "performance." << endl;
+			cout << ">Heat Exchangers: The Reynolds number aids in determining the heat transfer" << endl;
+			cout << "characteristics of fluids, influencing the design and efficiency of heat" << endl;
+			cout << "exchangers." << endl;
+			cout << ">Environmental Studies: It is used in modeling natural flows, such as river" << endl;
+			cout << "currents and ocean currents, to predict sediment transport and mixing." << endl;
+			cout << endl;
+			cout << "Importance:" << endl;
+			cout << "The Reynolds number is a fundamental concept in fluid mechanics that influences" << endl;
+			cout << "the design and analysis of various engineering systems. It helps engineers and" << endl;
+			cout << "scientists understand and predict fluid behavior in a wide range of applications," << endl;
+			cout << "from industrial processes to environmental systems." << endl;
+			cout << "========================================================================" << endl;
 
+			
+
+			break;
+			
+		//Prandtl number
+		case 20:
+
+			break;
+		
+		//Nusselt number
+		case 30:
+
+			break;
+			
+		case 40:
+	
+			break;
+		
+		case 50:
+
+			break;
+		case 60:
+
+			break;
+		
+		case 70:
+
+			break;
+			
+		case 80:
+
+			break;
+
+		default:
+			cout << code << " :Not a valid CODE" <<endl;
+			
+		}
+		
+	};
+	
 	double Reynolds (double u, double l, double rho, double mu){
 		
 		//calculations
