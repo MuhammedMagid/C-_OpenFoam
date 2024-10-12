@@ -1,0 +1,15 @@
+The Schmidt number (Sc) is a dimensionless number used in fluid dynamics to describe the ratio of momentum diffusivity (viscosity) to mass diffusivity (the rate at which particles diffuse in a fluid). It is particularly important in mass transfer processes where both momentum and mass transfer are occurring simultaneously, such as in chemical reactors, environmental systems, and biological processes.
+Physical Significance:
+The Schmidt number compares the relative effectiveness of momentum transport (through viscosity) to mass transport (through diffusion). It is used in problems where both mass and momentum are being transferred in a fluid, such as in the absorption of gases into liquids, evaporation, or mixing processes.
+
+High Schmidt numbers (Sc>1) indicate that momentum diffusivity dominates over mass diffusivity, meaning that the fluid's viscosity is more significant than its ability to diffuse solutes. This is typical in liquids, where mass diffusion is generally slower than momentum diffusion.
+
+Low Schmidt numbers (Sc<1) mean that mass diffusivity dominates over momentum diffusivity, which is often the case in gases where molecules diffuse more rapidly compared to momentum transfer.
+
+Applications:
+Mass transfer in chemical engineering: The Schmidt number is used in conjunction with the Reynolds number and the Sherwood number to describe mass transfer in chemical reactors, absorbers, and other devices where solutes are being transferred between phases.
+
+Environmental science: In processes like the dispersion of pollutants in the atmosphere or oceans, the Schmidt number helps in modeling how different substances diffuse in air or water, considering both momentum and mass transport properties.
+
+Biological systems: The Schmidt number is used in modeling oxygen or nutrient transport in biological tissues or organs, where diffusion and flow occur simultaneously.
+

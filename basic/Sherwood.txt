@@ -1,0 +1,10 @@
+The Sherwood number (Sh) is a dimensionless number used in mass transfer operations, similar to how the Nusselt number is used in heat transfer. It represents the ratio of convective mass transfer to diffusive mass transport. The Sherwood number is crucial for determining the efficiency of mass transfer between a surface and a flowing fluid.
+
+Physical Significance:
+The Sherwood number quantifies how effective convective mass transfer is relative to molecular diffusion.
+High Sherwood numbers indicate that convective mass transfer dominates over diffusion, meaning the species is being transported more by bulk flow than by diffusion.
+Low Sherwood numbers suggest that diffusion is the primary mechanism of mass transfer.
+Applications:
+The Sherwood number is often used in processes such as gas absorption, liquid-liquid extraction, evaporation, corrosion, and drying, where mass transfer between phases is critical.
+It helps in calculating the rate at which a solute moves from a fluid phase to a solid phase, such as in chemical reactors or separation processes.
+The Sherwood number can also be correlated with other dimensionless numbers, like the Reynolds number (Re) and Schmidt number (Sc), to predict mass transfer behavior in various flow conditions.
