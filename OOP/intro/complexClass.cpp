@@ -6,11 +6,30 @@ class Complex
 	float real;
 	float imag;
 public:
+	Complex (){
+		real=0.0;
+		imag=0.0;
+	}
+	Complex (float r){
+		real = r;
+		imag=0.0;
+	}
+	Complex(float r , float i){
+		real=r;
+		imag=i;
+	}
+	~Complex(){
+		cout<<"Class Destructored"<<endl;
+	}
 	void setReal (float r){
 		real=r;
 	}
 	void setImag (float i){
 		imag =i;	
+	}
+	void setComplex(float r, float i){
+		real=r;
+		imag=i;
 	}
 	float getReal(){
 		return real;
@@ -37,7 +56,7 @@ public:
 
 
 int main(){
-	Complex c1,c2,c3;
+	Complex c1,c2,c3,c4;
 	c1.setReal(2);
 	c1.setImag(5);
 	c2.setReal(7);
@@ -45,5 +64,8 @@ int main(){
 
 	c3 = c1.add(c2);
 	c3.print();
+
+	c4=c1.add(c3);
+	c4.print();
 	return 0;
 };
