@@ -1,6 +1,7 @@
 #ifndef DIMENSIONLESSNUMBER_H
 #define DIMENSIONLESSNUMBER_H
 
+// Abstract Class (Interface)
 class DimensionlessNumber {
 public:
     virtual void calculate() = 0;
